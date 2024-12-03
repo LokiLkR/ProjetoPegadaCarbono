@@ -1,0 +1,109 @@
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+System.out.println ("Disciplina: Liguagem de Programação (GTI-2ºsemestre)");
+System.out.println(" ");
+System.out.println ("                  Elaborado por:                    ");  
+System.out.println ("              Guilherme Araujo Lima                 ");    
+System.out.println ("          Natan Tavares Rodrigues da Silva          ");    
+System.out.println ("            Thiago Henrique da Silveira             ");    
+System.out.println(" ");
+System.out.println(" [Código 2 - MENU: CO2, Créditos de Carbono e Protocolo GHG3]");
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+        do {
+            MENU();
+            opcao = scanner.nextInt();
+            scanner.nextLine(); 
+            switch (opcao) 
+            {
+                case 1:
+                    option1();
+                    break;
+                case 2:
+                    option2();
+                    break;
+                case 3:
+                    option3();
+                    break;
+                case 4:
+                    option4();
+                    break;
+                case 5:
+                    option5();
+                    break;
+                case 6:
+                    option6();
+                    break;
+                case 7:
+                    option7();
+                    break;
+                case 8:
+                    System.out.println("Saindo do menu...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        } while (opcao != 8);
+        scanner.close();
+    }
+    private static void MENU() 
+    {
+        System.out.println("");
+        System.out.println("                 {Menu Principal}                  ");
+        System.out.println("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+        System.out.println(" 1. Quais os efeitos dos gasses do efeito estufa?");
+        System.out.println(" 2. O que é protocolo GHG3?");
+        System.out.println(" 3. Link do protocolo GHG3:");
+        System.out.println(" 4. Crédito de Carbono:");
+        System.out.println(" 5. Cotação atual do Crédito de Carbono:");
+        System.out.println(" 6. Calculo Rapido de Emissão de carro e caminhão:");
+        System.out.println(" 7. Calculadora de Pegada de Carbono:");
+        System.out.println(" 8. Sair");
+        System.out.print("Digite sua escolha: ");
+    }
+    private static void option1() 
+    {
+        System.out.println(""); // Explicação resumida do que são Gases do Efeito Estufa
+        System.out.println("  1. Os Gases de Efeito Estufa (GEE), são substâncias gasosas naturalmente presentes na atmosfera e que absorvem parte da radiação infravermelha emitida pelo Sol e refletida pela superfície terrestre, dificultando o escape desta radiação para o espaço. Sua consequência são: inundação das cidades costeiras, a desertificação de áreas férteis, o derretimento de massas glaciais e maoir eminência de desastres climaticos");
+    }
+    private static void option2() 
+    {
+        System.out.println(""); // Explicação do protocolo GHG3
+        System.out.println("  2. O Protocolo GHG  é um pacote de padrões, orientações, ferramentas e treinamentos para que empresas e governos mensurem e gerenciem as emissões antropogênicas responsáveis pelo aquecimento global.");
+    }
+    private static void option3() 
+    {
+        System.out.println("");// Link de acesso para o site do GHG3 Protocol
+        System.out.println("  3. https://ghgprotocol.org/sites/default/files/standards/ghg_protocol_portuguese.pdf");
+    }
+    
+    private static void option4() 
+    {
+        System.out.println("");// Resumo da da definição de crédito de carbono
+        System.out.println("  4. O crédito de carbono funciona como um incentivo econômico para as empresas adotarem energias limpas. Companhias que impedem a emissão de 1 tonelada de CO2 geram esse crédito e podem vendê-lo para outras instituições que excederem o volume de emissão desse gás na atmosfera.");
+    }
+    private static void option5() 
+    {
+        System.out.println("");// Média de 2023 para o valor do créito de carbono
+        System.out.println("  5. R$ 456,03 ");
+    }
+    private static void option6() 
+    {
+        System.out.println(""); // Calculadora simples para a emissão de Kg/CO2 de dois veiculos
+        Scanner scanner = new Scanner(System.in);  
+        System.out.print("  6. Digite a quantidade de Atividade (em Hora) por uso de Carro e de Caminhão: ");  
+        double carro = scanner.nextInt();  
+        double caminhao = scanner.nextInt();
+        { 
+        System.out.print(" Carro:"+ (0.96*carro)+ "kg CO2e |");// 0.96 é a media de emissão padrão de CO2 de um carro
+        System.out.println(" Caminhão:"+ (4*caminhao) +"kg CO2e ");// 4 é a media de emissão padrão de CO2 para um caminhão
+        }
+    }
+    private static void option7()//Cálculo de Emissão de CO2 disponivel no codigo 01
+    {
+        System.out.println("  7. Opção disponivel no 'Código 1 - Cálculo de Emissão de CO2'");
+    }
+}

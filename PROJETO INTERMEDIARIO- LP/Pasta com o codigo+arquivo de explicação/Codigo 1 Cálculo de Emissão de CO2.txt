@@ -1,0 +1,121 @@
+import java.util.*;
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+System.out.println(" ");
+System.out.println ("       Disciplina: Liguagem de Programação (GTI-2ºsemestre)         ");
+System.out.println(" ");
+System.out.println ("                             Elaborado por:                         ");  
+System.out.println ("                         Guilherme Araujo Lima                      ");    
+System.out.println ("                    Natan Tavares Rodrigues da Silva                ");    
+System.out.println ("                       Thiago Henrique da Silveira                  ");    
+System.out.println(" ");
+System.out.println("                   [Código 1 - Cálculo de Emissão de CO2]            ");
+        Scanner scanner = new Scanner(System.in);
+        boolean continuar = true;
+        while (continuar)
+        {
+//                                                  ETAPA 01:
+// O usuário deve informar os dados da empresa em que ele deseja colcular as emissões de carbono
+System.out.println ("-+-+-+-+-+-+-+-+-+-+-+{INFORME OS DADOS DA EMPRESA}-+-+-+-+-+-+--+-+-+-+-");
+System.out.println(" ");
+            System.out.print(" | Digite o nome da empresa: ");
+            String nome = scanner.nextLine();
+            System.out.print(" | Informe o dono da empresa: ");
+            String dono = scanner.nextLine();
+            System.out.print(" | Digite o ramo de atividade: ");
+            String atividade = scanner.nextLine();
+            System.out.print(" | Digite a localização: ");
+            String local = scanner.nextLine();
+            System.out.print(" | Digite o número de funcionários: ");
+            String numFuncionario = scanner.nextLine();
+System.out.println(" ");
+
+//                                                 ETAPA 02:
+// O usuário deve primeiramente, informar a quantidade de fontes de emissão totais que ele deseja inserir.
+// Logo apos, ele deve informar os nomes, os fatores de emissão e por ultimo o tempo (em Horas) para cada fonte.  
+
+System.out.println ("-+-++-+-+-+-+-+{INFORME AS INFORMAÇÕES DAS FONTES EMISSORAS}-+-+-+-+-+-+-");
+System.out.println(" ");
+            System.out.print(" | Digite a quantidade de fontes de emissão: ");
+            int numFontes = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println(" ");
+
+            String[][] fontesEmissoes = new String[numFontes][2];
+            for (int i = 0; i < numFontes; i++) 
+            {
+                System.out.print(" | Digite o nome da fonte " + (i + 1) + ": ");
+                fontesEmissoes[i][0] = scanner.nextLine();
+                System.out.print(" | Digite o fator de emissão (kg CO2/unidade) para " + fontesEmissoes[i][0] + ": ");
+                fontesEmissoes[i][1] = scanner.nextLine();
+                System.out.println(" ");
+            }
+            double[] dadosAtividade = new double[numFontes];
+            for (int i = 0; i < numFontes; i++) 
+            {
+                System.out.print(" | Digite a quantidade de atividade (em horas) para " + fontesEmissoes[i][0] + ": ");
+                dadosAtividade[i] = scanner.nextDouble();
+                scanner.nextLine(); 
+            }    
+            
+//                                                 ETAPA 03:
+// Etapa onde se realizam os calculos necessarios.
+// As Emissões de Carbono de cada fonte multiplicando a quantidade de atividade pelo fator de emissão
+            double[] emissoesPorFonte = new double[numFontes];
+            for (int i = 0; i < numFontes; i++) 
+            {
+                emissoesPorFonte[i] = dadosAtividade[i] * Double.parseDouble(fontesEmissoes[i][1]);
+            }
+// A Pegada de carbono total é calculada somando as emissões de todas as fontes.
+            double pegadaCarbonoTotal = 0.0;
+            for (double emissao : emissoesPorFonte) 
+            {
+                pegadaCarbonoTotal += emissao;
+            }
+            
+//                                              ETAPA 04:
+// Apos os calculo, os resultados são mostratos juntamente com os dados da Empresa
+// São mostrados os resultados da: Pegada de Carbono total e as emissoes por fontes
+System.out.println(" ");
+System.out.println ("-+-+-+-+-+-+-+-+-+-+-+-+-+-+{RESULTADOS}+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+");
+System.out.println(" ");
+            System.out.println(" | Resultados do Cálculo da Pegada de Carbono:");
+            System.out.println(" ");
+            System.out.println(" | Empresa:                    " + nome);
+            System.out.println(" | Dono:                       " + dono);
+            System.out.println(" | Ramo de Atividade:          " + atividade);
+            System.out.println(" | Localização:                " + local);
+            System.out.println(" | Número de Funcionários:     " + numFuncionario);
+            System.out.println(" | Pegada de Carbono Total:    " + pegadaCarbonoTotal + " kg CO2");
+            if (numFontes > 0) 
+            {
+                System.out.println(" ");
+                System.out.println("Emissões por Fonte:");
+                System.out.println(" ");
+            System.out.println(" -------------------------------------------------------------------------");
+                for (int i = 0; i < numFontes; i++) 
+                {
+                    System.out.println("  |"+fontesEmissoes[i][0] + ": " + emissoesPorFonte[i] + " kg CO2");  
+            System.out.println(" -------------------------------------------------------------------------");
+                }
+            }
+//                                                  ETAPA 05:
+// Após mostrados os calculos, o progrma pergunta ao usuário, se ele deseja continuar e colocar os dados de uma outra empresa
+// Caso a resposta do usuário seja diferente de S, o programa é encerrado imediatamente
+            // Perguntar ao usuário se deseja continuar
+            System.out.println(" ");
+            System.out.print("Deseja informar uma nova empresa? [Aperte S para SIM ou N para NÃO] ");
+            String resposta = scanner.next();
+            continuar = resposta.equalsIgnoreCase("S");
+            System.out.println(" -------------------------------------------------------------------------");
+            scanner.nextLine(); 
+        System.out.println(" ");
+System.out.println ("                          [OBRIGADO POR UTILIZAR]                     ");
+System.out.println ("                 Guilherme Araujo Lima. RA:2760782323013           ");    
+System.out.println ("           Natan Tavares Rodrigues da Silva. RA:2760782323011  ");    
+System.out.println ("              Thiago Henrique da Silveira. RA:2760782323026      "); 
+        }
+    }
+}
